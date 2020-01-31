@@ -51,18 +51,66 @@ public class Car implements Movable{
         decrementSpeed(amount);
     }
 
+    public void direction() {
+
+    }
+
+    double x_pos = 0.0;
+    double y_pos = 0.0;
+    Dir curDir = Dir.RIGHT;
+
+    enum Dir {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
+
     @Override
     public void move() {
-
+        if (curDir == Dir.UP){
+            y_pos += currentSpeed;
+        }
+        else if (curDir == Dir.DOWN){
+            y_pos -= currentSpeed;
+        }
+        else if (curDir == Dir.LEFT){
+            x_pos -= currentSpeed;
+        }
+        else if (curDir == Dir.RIGHT){
+            x_pos += currentSpeed;
+        }
     }
 
     @Override
     public void turnLeft() {
-
+        if(curDir == Dir.RIGHT) {
+            curDir = Dir.UP;
+        }
+        else if(curDir == Dir.LEFT) {
+            curDir = Dir.DOWN;
+        }
+        else if(curDir == Dir.UP) {
+            curDir = Dir.LEFT;
+        }
+        else if(curDir == Dir.DOWN) {
+            curDir = Dir.RIGHT;
+        }
     }
 
     @Override
     public void turnRight() {
-
+        if(curDir == Dir.RIGHT) {
+            curDir = Dir.DOWN;
+        }
+        else if(curDir == Dir.LEFT) {
+            curDir = Dir.UP;
+        }
+        else if(curDir == Dir.UP) {
+            curDir = Dir.RIGHT;
+        }
+        else if(curDir == Dir.DOWN) {
+            curDir = Dir.LEFT;
+        }
     }
 }
