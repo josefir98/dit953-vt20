@@ -5,7 +5,7 @@ public class Volvo240 extends Car{
     public final static double trimFactor = 1.25;
 
     public Volvo240(Color color){
-        Car volvo = new Car("Volvo240", 4, color, 100);
+        super("Volvo240", 4, color, 100);
     }
     
     public double speedFactor(){
@@ -16,7 +16,6 @@ public class Volvo240 extends Car{
     public void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
-
 
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);

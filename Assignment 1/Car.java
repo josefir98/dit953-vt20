@@ -2,33 +2,35 @@ import java.awt.*;
 
 public abstract class Car implements Movable {
 
-    public String modelName; // The car model name
-    public int nrDoors; // Number of doors on the car
-    public Color color; // Color of the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
+    private String modelName; // The car model name
+    private int nrDoors; // Number of doors on the car
+    private Color color; // Color of the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
 
-    double x;
-    double y;
-    enum Dir {
+    private double x;
+    private double y;
+    private enum Dir {
         UP,
         DOWN,
         LEFT,
         RIGHT
     }
-    Dir curDir = Dir.RIGHT;
+    private Dir curDir;
 
     public Car(String modelName, int nrDoors, Color color, double enginePower) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
+        this.curDir = Dir.RIGHT;
         stopEngine();
     }
 
     public int getNrDoors(){
         return nrDoors;
     }
+
     public double getEnginePower(){
         return enginePower;
     }
@@ -43,10 +45,6 @@ public abstract class Car implements Movable {
 
     public Color getColor(){
         return color;
-    }
-
-    public void setColor(Color clr){
-        color = clr;
     }
 
     public void startEngine(){
