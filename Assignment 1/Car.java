@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Car implements Movable {
+public abstract class Car implements Movable {
 
     public String modelName; // The car model name
     public int nrDoors; // Number of doors on the car
@@ -37,6 +37,10 @@ public class Car implements Movable {
         return currentSpeed;
     }
 
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
     public Color getColor(){
         return color;
     }
@@ -53,8 +57,8 @@ public class Car implements Movable {
         currentSpeed = 0;
     }
 
-    private void incrementSpeed(double amount){ }
-    private void decrementSpeed(double amount){ }
+    public abstract void incrementSpeed(double amount){ }
+    public abstract void decrementSpeed(double amount){ }
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
