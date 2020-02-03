@@ -92,24 +92,4 @@ public class Volvo240 extends Car{
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
-    /**
-     * Increases the speed of the car and checks if amount is outside the parameter 0 to 1
-     * @param amount
-     */
-    public void gas(double amount){
-        double speed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
-        if (speed > getCurrentSpeed()) {
-            setCurrentSpeed(speed);
-        }
-    }
-    /**
-     * Breaks the car and checks if amount is outside the parameter 0 to 1
-     * @param amount
-     */
-    public void brake(double amount){
-        double speed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
-        if (speed < getCurrentSpeed()) {
-            setCurrentSpeed(speed);
-        }
-    }
 }
