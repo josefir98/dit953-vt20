@@ -10,21 +10,16 @@ public abstract class Car implements Movable {
 
     private double x;
     private double y;
+
     private enum Dir {
         UP,
         DOWN,
         LEFT,
         RIGHT
     }
+
     private Dir curDir;
 
-    /**
-     *
-     * @param modelName
-     * @param nrDoors
-     * @param color
-     * @param enginePower
-     */
     public Car(String modelName, int nrDoors, Color color, double enginePower) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
@@ -34,60 +29,61 @@ public abstract class Car implements Movable {
         stopEngine();
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
 
-    public double getEnginePower(){
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
     public void setCurrentSpeed(double currentSpeed) {
-        if(currentSpeed >= enginePower) {
+        if (currentSpeed >= enginePower) {
             this.currentSpeed = enginePower;
         } else {
             this.currentSpeed = currentSpeed;
         }
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void startEngine(){
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
     public abstract void incrementSpeed(double amount);
+
     public abstract void decrementSpeed(double amount);
 
-    public void gas(double amount){
-        if(amount <= 1 && amount >= 0) {
+    public void gas(double amount) {
+        if (amount <= 1 && amount >= 0) {
             incrementSpeed(amount);
-        }else {
+        } else {
             throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
         }
     }
 
-    public void brake(double amount){
-        if(amount <= 1 && amount >= 0) {
+    public void brake(double amount) {
+        if (amount <= 1 && amount >= 0) {
             decrementSpeed(amount);
-        }else {
+        } else {
             throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
         }
     }
 
     @Override
     public void move() {
-        if(curDir == Dir.RIGHT) {
+        if (curDir == Dir.RIGHT) {
             x += currentSpeed;
         } else if (curDir == Dir.LEFT) {
             x -= currentSpeed;
@@ -100,7 +96,7 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnLeft() {
-        if(curDir == Dir.RIGHT) {
+        if (curDir == Dir.RIGHT) {
             curDir = Dir.UP;
         } else if (curDir == Dir.LEFT) {
             curDir = Dir.DOWN;
@@ -113,7 +109,7 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnRight() {
-        if(curDir == Dir.RIGHT) {
+        if (curDir == Dir.RIGHT) {
             curDir = Dir.DOWN;
         } else if (curDir == Dir.LEFT) {
             curDir = Dir.UP;

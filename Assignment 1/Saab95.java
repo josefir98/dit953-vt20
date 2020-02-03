@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
@@ -8,30 +8,30 @@ public class Saab95 extends Car{
         super("Saab95", 2, color, 125);
     }
 
-    public void setTurboOn(){
-	    turboOn = true;
+    public void setTurboOn() {
+        turboOn = true;
     }
 
-    public void setTurboOff(){
-	    turboOn = false;
+    public void setTurboOff() {
+        turboOn = false;
     }
-    
-    public double speedFactor(){
+
+    public double speedFactor() {
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        if (turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
 
-    public void incrementSpeed(double amount){
+    public void incrementSpeed(double amount) {
         double speed = getCurrentSpeed() + speedFactor() * amount;
-        if(speed > getCurrentSpeed()) {
+        if (speed > getCurrentSpeed()) {
             setCurrentSpeed(speed);
         }
     }
 
-    public void decrementSpeed(double amount){
+    public void decrementSpeed(double amount) {
         double speed = getCurrentSpeed() - speedFactor() * amount;
-        if(speed < getCurrentSpeed()) {
+        if (speed < getCurrentSpeed()) {
             setCurrentSpeed(speed);
         }
     }
