@@ -89,13 +89,22 @@ public class TestCar {
     public void testBrake1() {
         car.setCurrentSpeed(5);
         car.brake(0.5);
-        assertTrue(car.getCurrentSpeed() == 1.875);
+        assertTrue(car.getCurrentSpeed() == 4.375);
     }
 
     @Test
     public void testBrake2() {
         try {
             car.brake(-1);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testBrake3() {
+        try {
+            car.brake(2);
         } catch (IllegalArgumentException e) {
             assertTrue(true);
         }
