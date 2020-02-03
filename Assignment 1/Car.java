@@ -44,6 +44,8 @@ public abstract class Car implements Movable {
     public void setCurrentSpeed(double currentSpeed) {
         if (currentSpeed >= enginePower) {
             this.currentSpeed = enginePower;
+        } else if (currentSpeed <= 0) {
+            this.currentSpeed = 0;
         } else {
             this.currentSpeed = currentSpeed;
         }
@@ -51,6 +53,10 @@ public abstract class Car implements Movable {
 
     public Color getColor() {
         return color;
+    }
+
+    public void setColor(Color clr){
+        color = clr;
     }
 
     public void startEngine() {
