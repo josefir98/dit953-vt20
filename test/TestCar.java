@@ -111,11 +111,104 @@ public class TestCar {
     }
 
     @Test
-    public void testBrake3() {
-        try {
-            car.brake(2);
-        } catch (IllegalArgumentException e) {
-            assertTrue(true);
-        }
+    public void testMove1() {
+        car.setCurrentSpeed(1);
+        car.move();
+        assertTrue(car.getX() == 1 && car.getY() == 0);
+    }
+
+    @Test
+    public void testMove2() {
+        car.setCurrentSpeed(1);
+        car.setCurDir(Car.Dir.DOWN);
+        car.move();
+        assertTrue(car.getX() == 0 && car.getY() == -1);
+    }
+
+    @Test
+    public void testMove3() {
+        car.setCurrentSpeed(1);
+        car.setCurDir(Car.Dir.LEFT);
+        car.move();
+        assertTrue(car.getX() == -1 && car.getY() == 0);
+    }
+
+    @Test
+    public void testMove4() {
+        car.setCurrentSpeed(1);
+        car.setCurDir(Car.Dir.UP);
+        car.move();
+        assertTrue(car.getX() == 0 && car.getY() == 1);
+    }
+
+    @Test
+    public void testTurnLeft1() {
+        car.turnLeft();
+        assertTrue(car.getCurDir() == Car.Dir.UP);
+    }
+
+    @Test
+    public void testTurnLeft2() {
+        car.setCurDir(Car.Dir.DOWN);
+        car.turnLeft();
+        assertTrue(car.getCurDir() == Car.Dir.RIGHT);
+    }
+
+    @Test
+    public void testTurnLeft3() {
+        car.setCurDir(Car.Dir.LEFT);
+        car.turnLeft();
+        assertTrue(car.getCurDir() == Car.Dir.DOWN);
+    }
+
+    @Test
+    public void testTurnLeft4() {
+        car.setCurDir(Car.Dir.UP);
+        car.turnLeft();
+        assertTrue(car.getCurDir() == Car.Dir.LEFT);
+    }
+
+    @Test
+    public void testTurnRight1() {
+        car.turnRight();
+        assertTrue(car.getCurDir() == Car.Dir.DOWN);
+    }
+
+    @Test
+    public void testTurnRight2() {
+        car.setCurDir(Car.Dir.DOWN);
+        car.turnRight();
+        assertTrue(car.getCurDir() == Car.Dir.LEFT);
+    }
+
+    @Test
+    public void testTurnRight3() {
+        car.setCurDir(Car.Dir.LEFT);
+        car.turnRight();
+        assertTrue(car.getCurDir() == Car.Dir.UP);
+    }
+
+    @Test
+    public void testTurnRight4() {
+        car.setCurDir(Car.Dir.UP);
+        car.turnRight();
+        assertTrue(car.getCurDir() == Car.Dir.RIGHT);
+    }
+
+    @Test
+    public void testSpeedFactorSaab1() {
+        assertTrue(car.speedFactor() == 1.25);
+    }
+
+    @Test
+    public void testSpeedFactorSaab2() {
+        car.setTurboOn();
+        assertTrue(car.speedFactor() == 1.625);
+    }
+
+    @Test
+    public void testSpeedFactorVolvo() {
+        Volvo240 car2 = new Volvo240(Color.GREEN);
+        assertTrue(car2.speedFactor() == 1.25);
     }
 }

@@ -11,7 +11,7 @@ public abstract class Car implements Movable {
     private double x;
     private double y;
 
-    private enum Dir {
+    public enum Dir {
         UP,
         DOWN,
         LEFT,
@@ -67,9 +67,45 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    public abstract void incrementSpeed(double amount);
+    public double getX() {
+        return x;
+    }
 
-    public abstract void decrementSpeed(double amount);
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public Dir getCurDir() {
+        return curDir;
+    }
+
+    public void setCurDir(Dir curDir) {
+        this.curDir = curDir;
+    }
+
+    public abstract double speedFactor();
+
+    public void incrementSpeed(double amount) {
+        double speed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+        if (speed > getCurrentSpeed()) {
+            setCurrentSpeed(speed);
+        }
+    }
+
+    public void decrementSpeed(double amount) {
+        double speed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+        if (speed < getCurrentSpeed()) {
+            setCurrentSpeed(speed);
+        }
+    }
 
     public void gas(double amount) {
         if (amount <= 1 && amount >= 0) {
