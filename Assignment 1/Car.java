@@ -40,7 +40,11 @@ public abstract class Car implements Movable {
     }
 
     public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+        if(currentSpeed >= enginePower) {
+            this.currentSpeed = enginePower;
+        } else {
+            this.currentSpeed = currentSpeed;
+        }
     }
 
     public Color getColor(){
@@ -55,16 +59,23 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    public abstract void incrementSpeed(double amount){ }
-    public abstract void decrementSpeed(double amount){ }
+    public abstract void incrementSpeed(double amount);
+    public abstract void decrementSpeed(double amount);
 
-    // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+        if(amount <= 1 && amount >= 0) {
+            incrementSpeed(amount);
+        }else {
+            throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
+        }
     }
-    // TODO fix this method according to lab pm
+
     public void brake(double amount){
-        decrementSpeed(amount);
+        if(amount <= 1 && amount >= 0) {
+            decrementSpeed(amount);
+        }else {
+            throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
+        }
     }
 
     @Override
