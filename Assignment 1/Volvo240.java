@@ -4,10 +4,18 @@ public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
 
+    /**
+     * constructor for Volvo240 using the superclass in the car.java file. Color can be specified here
+     * @param color 
+     */
     public Volvo240(Color color) {
         super("Volvo240", 4, color, 100);
     }
 
+    /**
+     * How fast the car can accelerate
+     * @return
+     */
     public double speedFactor() {
         return getEnginePower() * 0.01 * trimFactor;
     }
