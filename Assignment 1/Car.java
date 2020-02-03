@@ -20,6 +20,14 @@ public abstract class Car implements Movable {
 
     private Dir curDir;
 
+    /**
+     * Superclass for volvo240 and Saab95
+     * @param modelName is the type of car
+     * @param nrDoors number of doors
+     * @param color color is the color
+     * @param enginePower is the engine power of the car
+     */
+    
     public Car(String modelName, int nrDoors, Color color, double enginePower) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
@@ -37,6 +45,10 @@ public abstract class Car implements Movable {
         return enginePower;
     }
 
+    /**
+     * Takes current speed and sees that it does not overstep enginePower
+     * @param currentSpeed
+     */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
