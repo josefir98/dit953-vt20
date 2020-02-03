@@ -18,6 +18,13 @@ public abstract class Car implements Movable {
     }
     private Dir curDir;
 
+    /**
+     *
+     * @param modelName
+     * @param nrDoors
+     * @param color
+     * @param enginePower
+     */
     public Car(String modelName, int nrDoors, Color color, double enginePower) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
