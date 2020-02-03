@@ -11,6 +11,9 @@ public abstract class Car implements Movable {
     private double x;
     private double y;
 
+    /**
+     * enum for direction of car
+     */
     public enum Dir {
         UP,
         DOWN,
@@ -20,6 +23,13 @@ public abstract class Car implements Movable {
 
     private Dir curDir;
 
+    /**
+     * Superclass for volvo240 and Saab95
+     * @param modelName is the type of car
+     * @param nrDoors number of doors
+     * @param color color is the color
+     * @param enginePower is the engine power of the car
+     */
     public Car(String modelName, int nrDoors, Color color, double enginePower) {
         this.modelName = modelName;
         this.nrDoors = nrDoors;
@@ -29,18 +39,34 @@ public abstract class Car implements Movable {
         stopEngine();
     }
 
+    /**
+     * Getter for number of doors
+     * @return
+     */
     public int getNrDoors() {
         return nrDoors;
     }
 
+    /**
+     * Getter for amount of engine power
+     * @return
+     */
     public double getEnginePower() {
         return enginePower;
     }
 
+    /**
+     * Getter for current speed of car
+     * @return
+     */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
+    /**
+     * Takes current speed and sees that it does not overstep enginePower
+     * @param currentSpeed
+     */
     public void setCurrentSpeed(double currentSpeed) {
         if (currentSpeed >= enginePower) {
             this.currentSpeed = enginePower;
@@ -51,18 +77,32 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Getter for color of car
+     * @return
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     * Setter for color of car
+     * @param clr
+     */
     public void setColor(Color clr){
         color = clr;
     }
 
+    /**
+     * Initial speed of car when started
+     */
     public void startEngine() {
         currentSpeed = 0.1;
     }
 
+    /**
+     * Speed of car when turned off
+     */
     public void stopEngine() {
         currentSpeed = 0;
     }
@@ -93,6 +133,10 @@ public abstract class Car implements Movable {
 
     public abstract double speedFactor();
 
+    /**
+     * Increasing currentSpeed variable
+     * @param amount
+     */
     public void incrementSpeed(double amount) {
         double speed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
         if (speed > getCurrentSpeed()) {
@@ -100,6 +144,10 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Decreasing currentSpeed variable
+     * @param amount
+     */
     public void decrementSpeed(double amount) {
         double speed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
         if (speed < getCurrentSpeed()) {
@@ -107,6 +155,10 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Increases the speed of the car and checks if amount is outside the parameter 0 to 1
+     * @param amount
+     */
     public void gas(double amount) {
         if (amount <= 1 && amount >= 0) {
             incrementSpeed(amount);
@@ -115,6 +167,10 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Breaks the car and checks if amount is outside the parameter 0 to 1
+     * @param amount
+     */
     public void brake(double amount) {
         if (amount <= 1 && amount >= 0) {
             decrementSpeed(amount);
@@ -123,6 +179,9 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Moving position of the car on the x and y axis
+     */
     @Override
     public void move() {
         if (curDir == Dir.RIGHT) {
@@ -136,6 +195,9 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Turning car left depending of current orientation
+     */
     @Override
     public void turnLeft() {
         if (curDir == Dir.RIGHT) {
@@ -149,6 +211,9 @@ public abstract class Car implements Movable {
         }
     }
 
+    /**
+     * Turning car right depending of current orientation
+     */
     @Override
     public void turnRight() {
         if (curDir == Dir.RIGHT) {
