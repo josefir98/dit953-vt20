@@ -1,11 +1,13 @@
+package Generics;
+
+import Interfaces.Movable;
+
 import java.awt.*;
 
 public abstract class Vehicle implements Movable {
 
     private String modelName; // The car model name
-    private int nrDoors; // Number of doors on the car
     private Color color; // Color of the car
-    private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
 
     private double x;
@@ -24,35 +26,14 @@ public abstract class Vehicle implements Movable {
     private Dir curDir;
 
     /**
-     * Constructor for Vehicle
+     * Constructor for Generics.Vehicle
      * @param modelName is the type of car
-     * @param nrDoors number of doors
      * @param color color is the color
-     * @param enginePower is the engine power of the car
      */
-    public Vehicle(String modelName, int nrDoors, Color color, double enginePower) {
+    public Vehicle(String modelName, Color color) {
         this.modelName = modelName;
-        this.nrDoors = nrDoors;
         this.color = color;
-        this.enginePower = enginePower;
         this.curDir = Dir.RIGHT;
-        stopEngine();
-    }
-
-    /**
-     * Getter for number of doors
-     * @return
-     */
-    public int getNrDoors() {
-        return nrDoors;
-    }
-
-    /**
-     * Getter for engine power
-     * @return
-     */
-    public double getEnginePower() {
-        return enginePower;
     }
 
     /**
@@ -68,17 +49,11 @@ public abstract class Vehicle implements Movable {
      * @param currentSpeed
      */
     public void setCurrentSpeed(double currentSpeed) {
-        if (currentSpeed >= enginePower) {
-            this.currentSpeed = enginePower;
-        } else if (currentSpeed <= 0) {
-            this.currentSpeed = 0;
-        } else {
-            this.currentSpeed = currentSpeed;
-        }
+        this.currentSpeed = currentSpeed;
     }
 
     /**
-     * Getter for color of car
+     * Getter for color of Vehicle
      * @return
      */
     public Color getColor() {
@@ -91,20 +66,6 @@ public abstract class Vehicle implements Movable {
      */
     public void setColor(Color clr){
         color = clr;
-    }
-
-    /**
-     * Initial speed of car when started
-     */
-    public void startEngine() {
-        currentSpeed = 0.1;
-    }
-
-    /**
-     * Speed of car when turned off
-     */
-    public void stopEngine() {
-        currentSpeed = 0;
     }
 
     public double getX() {
@@ -133,27 +94,9 @@ public abstract class Vehicle implements Movable {
 
     public abstract double speedFactor();
 
-    /**
-     * Increasing currentSpeed variable
-     * @param amount
-     */
-    public void incrementSpeed(double amount) {
-        double speed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
-        if (speed > getCurrentSpeed()) {
-            setCurrentSpeed(speed);
-        }
-    }
+    public abstract void incrementSpeed(double amount);
 
-    /**
-     * Decreasing currentSpeed variable
-     * @param amount
-     */
-    public void decrementSpeed(double amount) {
-        double speed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
-        if (speed < getCurrentSpeed()) {
-            setCurrentSpeed(speed);
-        }
-    }
+    public abstract void decrementSpeed(double amount);
 
     /**
      * Increases the speed of the car and checks if amount is outside the parameter 0 to 1

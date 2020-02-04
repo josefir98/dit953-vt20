@@ -1,3 +1,7 @@
+package Models;
+
+import Generics.Vehicle;
+
 import java.awt.*;
 
 public class Saab95 extends Vehicle {
@@ -5,11 +9,11 @@ public class Saab95 extends Vehicle {
     private boolean turboOn;
 
     /**
-     * constructor for Saab95 using the superclass in the car.java file. Color can be specified here
+     * constructor for Models.Saab95 using the superclass in the car.java file. Color can be specified here
      * @param color 
      */
     public Saab95(Color color) {
-        super("Saab95", 2, color, 125);
+        super("Models.Saab95", 2, color, 125);
         turboOn = false;
     }
 

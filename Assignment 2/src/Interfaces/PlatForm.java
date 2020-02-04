@@ -1,3 +1,5 @@
+package Interfaces;
+
 /**
  * Interface for things that have a platform
  */

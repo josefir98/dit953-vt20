@@ -1,3 +1,7 @@
+package Models;
+
+import Generics.Vehicle;
+
 import java.awt.*;
 
 public class Volvo240 extends Vehicle {
@@ -5,11 +9,11 @@ public class Volvo240 extends Vehicle {
     private final static double trimFactor = 1.25;
 
     /**
-     * constructor for Volvo240 using the superclass in the car.java file. Color can be specified here
+     * constructor for Models.Volvo240 using the superclass in the car.java file. Color can be specified here
      * @param color 
      */
     public Volvo240(Color color) {
-        super("Volvo240", 4, color, 100);
+        super("Models.Volvo240", 4, color, 100);
     }
 
     /**

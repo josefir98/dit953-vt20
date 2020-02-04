@@ -1,3 +1,8 @@
+package Models;
+
+import Generics.Vehicle;
+import Interfaces.PlatForm;
+
 import java.awt.*;
 
 public class Scania extends Vehicle implements PlatForm {
@@ -7,7 +12,7 @@ public class Scania extends Vehicle implements PlatForm {
     private int platformStage;
 
     public Scania(Color color) {
-        super("Scania", 2, color, 90);
+        super("Models.Scania", 2, color, 90);
         platformStage = 0;
     }
 
@@ -22,7 +27,6 @@ public class Scania extends Vehicle implements PlatForm {
         }else {
             return 0;
         }
-
     }
 
     @Override
@@ -39,9 +43,7 @@ public class Scania extends Vehicle implements PlatForm {
                 throw new RuntimeException("This platforms range is between 0-70 degrees!");
             }
         } else {
-            throw new RuntimeException("Vehicle must be still too change platform stage!");
+            throw new RuntimeException("Generics.Vehicle must be still too change platform stage!");
         }
     }
-
-
 }
