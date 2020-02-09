@@ -1,11 +1,11 @@
 package Models;
 
-import Generics.Vehicle;
+import Generics.Truck;
 import Interfaces.PlatForm;
 
 import java.awt.*;
 
-public class Scania extends Vehicle implements PlatForm {
+public class Scania extends Truck implements PlatForm {
 
     private final static double trimFactor = 1;
 

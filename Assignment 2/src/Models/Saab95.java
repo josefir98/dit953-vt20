@@ -1,10 +1,11 @@
 package Models;
 
+import Generics.Car;
 import Generics.Vehicle;
 
 import java.awt.*;
 
-public class Saab95 extends Vehicle {
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
