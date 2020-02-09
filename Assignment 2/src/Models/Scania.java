@@ -21,10 +21,9 @@ public class Scania extends Truck implements PlatForm {
      */
     @Override
     public double speedFactor() {
-        if (getPlatStage() == 0)
-        {
+        if (getPlatStage() == 0) {
             return getEnginePower() * 0.01 * trimFactor;
-        }else {
+        } else {
             return 0;
         }
     }
@@ -37,13 +36,22 @@ public class Scania extends Truck implements PlatForm {
     @Override
     public void setPlatStage(int degree) {
         if (getCurrentSpeed() == 0) {
-            if (degree <= 0 && degree >= 70) {
+            if (degree >= 0 && degree <= 70) {
                 platformStage = degree;
-            }else {
+            } else {
                 throw new RuntimeException("This platforms range is between 0-70 degrees!");
             }
         } else {
-            throw new RuntimeException("Generics.Vehicle must be still too change platform stage!");
+            throw new RuntimeException("Vehicle must be still too change platform stage!");
+        }
+    }
+
+    @Override
+    public void gas(double amount) {
+        if (getPlatStage() != 0) {
+            throw new RuntimeException("This vehicle cannot move if its platform is at more than 0 degrees!");
+        }else {
+            super.gas(amount);
         }
     }
 }

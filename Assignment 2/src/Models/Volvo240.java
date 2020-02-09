@@ -14,7 +14,7 @@ public class Volvo240 extends Car {
      * @param color 
      */
     public Volvo240(Color color) {
-        super("Models.Volvo240", 4, color, 100);
+        super("Models.Volvo240", Size.MEDIUM, 4, color, 100);
     }
 
     /**

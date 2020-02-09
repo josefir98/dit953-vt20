@@ -26,7 +26,7 @@ public abstract class Vehicle implements Movable {
     private Dir curDir;
 
     /**
-     * Constructor for Generics.Vehicle
+     * Constructor for Vehicle
      * @param modelName is the type of car
      * @param color color is the color
      */
@@ -121,6 +121,8 @@ public abstract class Vehicle implements Movable {
             throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
         }
     }
+
+    public abstract void load( object);
 
     /**
      * Moving position of the car on the x and y axis
