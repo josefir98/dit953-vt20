@@ -11,7 +11,7 @@ public class CarCarrierScania extends Truck implements PlatForm {
     private final static double trimFactor = 1.1;
     private Storage<Car, CarCarrierScania> carsStored = new Storage();
 
-    private int platformStage;
+    private int platformStage = 0;
 
     public CarCarrierScania(Color color) {
         super("Models.CarCarrierScania", 2, color, 95);

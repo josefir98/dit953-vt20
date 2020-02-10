@@ -9,7 +9,7 @@ public class Scania extends Truck implements PlatForm {
 
     private final static double trimFactor = 1;
 
-    private int platformStage;
+    private int platformStage = 0;
 
     public Scania(Color color) {
         super("Models.Scania", 2, color, 90);
