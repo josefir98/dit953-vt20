@@ -16,7 +16,7 @@ public abstract class Vehicle implements Movable {
     /**
      * enum for direction of car
      */
-    private enum Dir {
+    public enum Dir {
         UP,
         DOWN,
         LEFT,
