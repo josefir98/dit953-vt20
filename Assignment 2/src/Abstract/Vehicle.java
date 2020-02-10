@@ -13,6 +13,10 @@ public abstract class Vehicle implements Movable {
     private double x;
     private double y;
 
+    public abstract double speedFactor();
+    public abstract void incrementSpeed(double amount);
+    public abstract void decrementSpeed(double amount);
+
     /**
      * enum for direction of car
      */
@@ -68,35 +72,50 @@ public abstract class Vehicle implements Movable {
         color = clr;
     }
 
+    /**
+     * Getter for x pos of vehicle
+     * @return
+     */
     public double getX() {
         return x;
     }
-
+    /**
+     * Setter for x pos of vehicle
+     * @return
+     */
     public void setX(double x) {
         this.x = x;
     }
-
+    /**
+     * Getter for y pos of vehicle
+     * @return
+     */
     public double getY() {
         return y;
     }
-
+    /**
+     * Setter for y pos of vehicle
+     * @return
+     */
     public void setY(double y) {
         this.y = y;
     }
 
+    /**
+     * Getter for current direction of car
+     * @return
+     */
     public Dir getCurDir() {
         return curDir;
     }
 
+    /**
+     * Setter for current direction of car
+     * @return
+     */
     public void setCurDir(Dir curDir) {
         this.curDir = curDir;
     }
-
-    public abstract double speedFactor();
-
-    public abstract void incrementSpeed(double amount);
-
-    public abstract void decrementSpeed(double amount);
 
     /**
      * Increases the speed of the car and checks if amount is outside the parameter 0 to 1

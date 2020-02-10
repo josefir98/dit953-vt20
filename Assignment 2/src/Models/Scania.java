@@ -11,6 +11,10 @@ public class Scania extends Truck implements PlatForm {
 
     private int platformStage;
 
+    /**
+     * Superclass for Scania
+     * @param color is the color of scania
+     */
     public Scania(Color color) {
         super("Models.Scania", 2, color, 90);
         platformStage = 0;
@@ -28,11 +32,20 @@ public class Scania extends Truck implements PlatForm {
         }
     }
 
+    /**
+     * Getter for platform stage (how open the door is)
+     * @return
+     */
     @Override
     public int getPlatStage() {
         return platformStage;
     }
 
+    /**
+     * Setter for platformstage
+     * Checks if platformstage is between 0 and 70 degrees
+     * @param degree
+     */
     @Override
     public void setPlatStage(int degree) {
         if (getCurrentSpeed() == 0) {
@@ -46,6 +59,11 @@ public class Scania extends Truck implements PlatForm {
         }
     }
 
+    /**
+     * Checks if door is open
+     * Unable to gas if door is open (!= 0)
+     * @param amount
+     */
     @Override
     public void gas(double amount) {
         if (getPlatStage() != 0) {

@@ -5,6 +5,12 @@ import java.awt.*;
 public abstract class Motorized extends Vehicle {
     private double enginePower; // Engine power of the car
 
+    /**
+     * Superclass Motorized
+     * @param modelName Name of motorized thing
+     * @param color Color of motorized thing
+     * @param enginePower Engine power of motorized thing
+     */
     public Motorized(String modelName, Color color, double enginePower) {
         super(modelName, color);
         this.enginePower = enginePower;

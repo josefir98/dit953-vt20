@@ -13,6 +13,10 @@ public class CarCarrierScania extends Truck implements PlatForm {
 
     private int platformStage;
 
+    /**
+     * Superclass for CarCarrierScania
+     * @param color is the color of the car carier
+     */
     public CarCarrierScania(Color color) {
         super("Models.CarCarrierScania", 2, color, 95);
         platformStage = 0;
@@ -31,11 +35,20 @@ public class CarCarrierScania extends Truck implements PlatForm {
         }
     }
 
+    /**
+     * Getter for PlatformStage
+     * @return
+     */
     @Override
     public int getPlatStage() {
         return platformStage;
     }
 
+    /**
+     * Setter for PlatformStage
+     * Checks if stage is open or closed (1 or 0)
+     * @param stage is the state of the truck door
+     */
     @Override
     public void setPlatStage(int stage) {
         if (getCurrentSpeed() == 0) {
