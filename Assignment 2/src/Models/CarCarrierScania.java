@@ -1,12 +1,15 @@
 package Models;
 
+import Abstract.Car;
 import Abstract.Truck;
-import Interfaces.PlatForm;
+import Helpers.PlatForm;
+import Helpers.Storage;
 
 import java.awt.*;
 
 public class CarCarrierScania extends Truck implements PlatForm {
     private final static double trimFactor = 1.1;
+    private Storage<Car> carsStored = new Storage();
 
     private int platformStage;
 
@@ -45,4 +48,6 @@ public class CarCarrierScania extends Truck implements PlatForm {
             throw new RuntimeException("Generics.Vehicle must be still too change platform stage!");
         }
     }
+
+
 }

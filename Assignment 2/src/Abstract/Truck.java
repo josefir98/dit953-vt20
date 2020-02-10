@@ -7,6 +7,7 @@ public abstract class Truck extends Motorized {
 
     public Truck(String modelName, int nrDoors, Color color, double enginePower) {
         super(modelName, color, enginePower);
+        this.nrDoors = nrDoors;
     }
 
     /**

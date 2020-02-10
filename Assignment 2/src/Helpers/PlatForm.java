@@ -1,4 +1,4 @@
-package Interfaces;
+package Helpers;
 
 /**
  * Interface for things that have a platform

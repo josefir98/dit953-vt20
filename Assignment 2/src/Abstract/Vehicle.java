@@ -1,6 +1,6 @@
 package Abstract;
 
-import Interfaces.Movable;
+import Helpers.Movable;
 
 import java.awt.*;
 

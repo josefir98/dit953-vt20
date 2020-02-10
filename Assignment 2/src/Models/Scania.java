@@ -1,7 +1,7 @@
 package Models;
 
 import Abstract.Truck;
-import Interfaces.PlatForm;
+import Helpers.PlatForm;
 
 import java.awt.*;
 
