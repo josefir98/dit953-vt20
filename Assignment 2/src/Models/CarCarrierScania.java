@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class CarCarrierScania extends Truck implements PlatForm {
     private final static double trimFactor = 1.1;
-    private Storage<Car> carsStored = new Storage();
+    private Storage<Car, CarCarrierScania> carsStored = new Storage();
 
     private int platformStage;
 
@@ -48,6 +48,4 @@ public class CarCarrierScania extends Truck implements PlatForm {
             throw new RuntimeException("Generics.Vehicle must be still too change platform stage!");
         }
     }
-
-
 }
