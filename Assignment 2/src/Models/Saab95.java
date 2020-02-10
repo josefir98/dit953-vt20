@@ -1,7 +1,6 @@
 package Models;
 
-import Generics.Car;
-import Generics.Vehicle;
+import Abstract.Car;
 
 import java.awt.*;
 

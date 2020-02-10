@@ -1,4 +1,4 @@
-package Generics;
+package Abstract;
 
 import java.awt.*;
 

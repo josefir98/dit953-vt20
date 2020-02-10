@@ -1,6 +1,6 @@
 package Models;
 
-import Generics.Truck;
+import Abstract.Truck;
 import Interfaces.PlatForm;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package Generics;
+package Abstract;
 
 import Interfaces.Movable;
 
@@ -121,8 +121,6 @@ public abstract class Vehicle implements Movable {
             throw new IllegalArgumentException("Parameter must be in intervall[0,1]");
         }
     }
-
-    public abstract void load( object);
 
     /**
      * Moving position of the car on the x and y axis
