@@ -1,5 +1,3 @@
-package Helpers;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -109,7 +107,14 @@ public class CarView extends JFrame{
                 carC.gas(gasAmount);
             }
         });
-
+/*
+        brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.brake(brakeAmount);
+            }
+        });
+*/
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
