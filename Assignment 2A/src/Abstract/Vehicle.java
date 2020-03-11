@@ -37,7 +37,7 @@ public abstract class Vehicle implements Movable {
     public Vehicle(String modelName, Color color) {
         this.modelName = modelName;
         this.color = color;
-        this.curDir = Dir.RIGHT;
+        this.curDir = Dir.DOWN;
     }
 
     /**
