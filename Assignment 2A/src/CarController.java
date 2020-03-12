@@ -82,8 +82,7 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Vehicle car : cars
-        ) {
+        for (Vehicle car : cars) {
             car.gas(gas);
         }
     }
@@ -91,9 +90,56 @@ public class CarController {
     // Calls the brake method for each car once
     void brake(int amount) {
         double brakeValue = ((double) amount) / 100;
-        for (Vehicle car : cars
-        ) {
+        for (Vehicle car : cars) {
             car.brake(brakeValue);
+        }
+    }
+
+    void turboOn() {
+        for (Vehicle car : cars) {
+            if(car instanceof Saab95) {
+                ((Saab95) car).setTurboOn();
+            }
+        }
+    }
+
+    void turboOff() {
+        for (Vehicle car : cars) {
+            if(car instanceof Saab95) {
+                ((Saab95) car).setTurboOff();
+            }
+        }
+    }
+
+    void liftBed() {
+        for (Vehicle car : cars) {
+            if(car instanceof Scania) {
+                ((Scania) car).setPlatStage(70);
+            }
+        }
+    }
+
+    void lowerBed() {
+        for (Vehicle car : cars) {
+            if(car instanceof Scania) {
+                ((Scania) car).setPlatStage(0);
+            }
+        }
+    }
+
+    void startCars() {
+        for (Vehicle car : cars) {
+            if(car instanceof Motorized) {
+                ((Motorized) car).startEngine();
+            }
+        }
+    }
+
+    void stopCars() {
+        for (Vehicle car : cars) {
+            if(car instanceof Motorized) {
+                ((Motorized) car).stopEngine();
+            }
         }
     }
 }

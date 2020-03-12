@@ -42,7 +42,7 @@ public class CarView extends JFrame {
     // Constructor
     public CarView(String framename, CarController cc) {
         this.carC = cc;
-        this.drawPanel = new DrawPanel(cc.cars, X, Y - 240);
+        this.drawPanel = new DrawPanel(cc.cars, X, Y - 400);
         initComponents(framename);
     }
 
@@ -121,6 +121,54 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.brake(gasAmount);
+            }
+        });
+
+        // ActionListener for the turboOnButton button
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn();
+            }
+        });
+
+        // ActionListener for the turboOffButton button
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOff();
+            }
+        });
+
+        // ActionListener for the liftBedButton button
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftBed();
+            }
+        });
+
+        // ActionListener for the lowerBedButton button
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerBed();
+            }
+        });
+
+        // ActionListener for the startButton button
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startCars();
+            }
+        });
+
+        // ActionListener for the stopButton button
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopCars();
             }
         });
 
