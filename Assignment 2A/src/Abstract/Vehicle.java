@@ -73,31 +73,34 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * Getter for x pos of vehicle
-     * @return
+     * @return Getter for x pos of vehicle
      */
     public double getX() {
         return x;
     }
     /**
      * Setter for x pos of vehicle
-     * @return
      */
     public void setX(double x) {
         this.x = x;
     }
     /**
-     * Getter for y pos of vehicle
-     * @return
+     * @return Getter for y pos of vehicle
      */
     public double getY() {
         return y;
     }
     /**
      * Setter for y pos of vehicle
-     * @return
      */
     public void setY(double y) {
+        this.y = y;
+    }
+    /**
+     * Setter for pos x and y of vehicle
+     */
+    public void setPos(double x, double y) {
+        this.x = x;
         this.y = y;
     }
 
