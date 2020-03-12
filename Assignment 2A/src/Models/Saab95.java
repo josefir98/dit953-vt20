@@ -13,7 +13,7 @@ public class Saab95 extends Car {
      * @param color 
      */
     public Saab95(Color color) {
-        super("Models.Saab95", Size.MEDIUM, 2, color,125);
+        super("Saab95", Size.MEDIUM, 2, color,125);
         turboOn = false;
     }
 

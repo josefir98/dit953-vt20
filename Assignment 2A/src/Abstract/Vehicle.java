@@ -37,12 +37,18 @@ public abstract class Vehicle implements Movable {
     public Vehicle(String modelName, Color color) {
         this.modelName = modelName;
         this.color = color;
-        this.curDir = Dir.DOWN;
+        this.curDir = Dir.RIGHT;
     }
 
     /**
-     * Getter for current speed of car
-     * @return
+     * @return Getter for model name of car
+     */
+    public String  getModelName() {
+        return modelName;
+    }
+
+    /**
+     * @return Getter for current speed of car
      */
     public double getCurrentSpeed() {
         return currentSpeed;
@@ -57,8 +63,7 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * Getter for color of Vehicle
-     * @return
+     * @return Getter for color of Vehicle
      */
     public Color getColor() {
         return color;

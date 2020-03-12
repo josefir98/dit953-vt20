@@ -1,5 +1,3 @@
-package Helpers;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -22,7 +20,7 @@ public class CarView extends JFrame {
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y - 240);
+    DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -44,6 +42,7 @@ public class CarView extends JFrame {
     // Constructor
     public CarView(String framename, CarController cc) {
         this.carC = cc;
+        this.drawPanel = new DrawPanel(cc.cars, X, Y - 240);
         initComponents(framename);
     }
 

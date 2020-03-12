@@ -16,7 +16,7 @@ public class Scania extends Truck implements PlatForm {
      * @param color is the color of scania
      */
     public Scania(Color color) {
-        super("Models.Scania", 2, color, 90);
+        super("Scania", 2, color, 90);
         platformStage = 0;
     }
 
